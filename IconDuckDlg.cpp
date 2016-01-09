@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "IconDuck.h"
 #include "IconDuckDlg.h"
-#include "UnicodeTextFile.h"
 
 #define MIN_ICON_SIZE 16
 #define MAX_ICON_SIZE 256
