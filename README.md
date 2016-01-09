@@ -1,0 +1,2 @@
+# IconDuck
+Icon previewing application
