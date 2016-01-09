@@ -122,13 +122,14 @@ CString CIconDuckDlg::GetOperatingSystem()
   HINSTANCE hInstance = ::ShellExecute(0, L"open", L"cmd.exe", L"/c ver > %temp%\\ver.txt", L"", SW_HIDE);
   if ((int)hInstance > 32)
   {
-    CUnicodeTextFile file;
     wchar_t szPath[MAX_PATH];
     GetTempPath(MAX_PATH, szPath);
     CString strTemp(szPath);
     strTemp += "\\ver.txt";
-    if (file.OpenToRead(strTemp))
+    CStdioFile file;
+    if (file.Open(strTemp, CFile::modeRead | CFile::typeText))
     {
+      file.SeekToBegin();
       while (file.ReadString(str))
       {
         str.Trim();
